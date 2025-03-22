@@ -12,4 +12,8 @@
     <PackageReference Include="Jamesnet.Wpf" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WpfExplorer.Support\WpfExplorer.Support.csproj" />
+  </ItemGroup>
+
 </Project>
