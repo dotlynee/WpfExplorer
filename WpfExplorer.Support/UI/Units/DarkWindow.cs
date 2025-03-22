@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace WpfExplorer.Support.UI.Units
+namespace WpfExplorer.Forms.UI.Units
 {
     public class DarkWindow : JamesWindow 
     {
