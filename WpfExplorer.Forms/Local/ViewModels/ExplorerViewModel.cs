@@ -1,19 +1,28 @@
-﻿using Jamesnet.Wpf.Mvvm;
-using WpfExplorer.Support.Local.Helpers;
+﻿using Jamesnet.Wpf.Controls;
+using Jamesnet.Wpf.Mvvm;
+using Prism.Ioc;
+using Prism.Regions;
+using WpfExplorer.Support.Local.Models;
 
 namespace WpfExplorer.Forms.Local.ViewModels
 {
-    public class ExplorerViewModel : ObservableBase
+    public class ExplorerViewModel(IContainerProvider containerProvider, IRegionManager regionManager) : ObservableBase, IViewLoadable
     {
-        public string DownloadDirectory { get; set; }
-        public string DocumentsDirectory { get; set; }
-        public string PicturesDirectory { get; set; }
+        private readonly IContainerProvider _contentProvider = containerProvider;
+        private readonly IRegionManager _regionManager = regionManager;
 
-        public ExplorerViewModel(DirectoryManager directoryManager)
+        public List<FolderInfo>? Roots { get; init; }
+
+        public void OnLoaded(IViewable view)
         {
-            DownloadDirectory = directoryManager.DownloadDirectory;
-            DocumentsDirectory = directoryManager.DocumentsDirectory;
-            PicturesDirectory = directoryManager.PicturesDirectory;
+            IRegion mainRegion = _regionManager.Regions["MainRegion"];
+            IViewable mainContent = _contentProvider.Resolve<IViewable>("MainContent");
+
+            if (!mainRegion.Views.Contains(mainContent))
+            {
+                mainRegion.Add(mainContent);
+            }
+            mainRegion.Activate(mainContent);
         }
     }
 }
