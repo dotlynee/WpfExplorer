@@ -1,5 +1,5 @@
-﻿using Jamesnet.Wpf.Controls;
-using System.Windows;
+﻿using System.Windows;
+using WpfExplorer.Forms.Local.ViewModels;
 using WpfExplorer.Forms.UI.Units;
 
 namespace WpfExplorer.Forms.UI.Views
@@ -9,6 +9,11 @@ namespace WpfExplorer.Forms.UI.Views
         static ExplorerWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ExplorerWindow), new FrameworkPropertyMetadata(typeof(ExplorerWindow)));
+        }
+
+        public ExplorerWindow()
+        {
+            DataContext = new ExplorerViewModel();
         }
     }
 }
