@@ -8,7 +8,10 @@
         <Setter Property="Content">
             <Setter.Value>
                 <StackPanel>
-                    <TextBlock Text="{Binding TestTitle}" Foreground="#FFFFFF"/>
+                    <TextBlock Text="{Binding}" Foreground="#FFFFFF"/>
+                    <TextBlock Text="{Binding DownloadDirectory}" Foreground="#FFFFFF"/>
+                    <TextBlock Text="{Binding DocumentsDirectory}" Foreground="#FFFFFF"/>
+                    <TextBlock Text="{Binding PicturesDirectory}" Foreground="#FFFFFF"/>
                     <units:FolderTreeView>
                         <units:FolderTreeItem Header="one"/>
                         <units:FolderTreeItem Header="two"/>

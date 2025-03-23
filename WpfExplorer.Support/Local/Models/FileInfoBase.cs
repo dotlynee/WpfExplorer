@@ -14,6 +14,5 @@ namespace WpfExplorer.Support.Local.Models
         public int Depth {  get; set; }
         public long Length { get; set; }
         public IconType IconType { get; set; }
-}
     }
 }
