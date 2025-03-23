@@ -7,6 +7,7 @@
         {
             _ = new App()
                 .AddInversionModule<Properties.HelperModules>()
+                .AddInversionModule<Properties.ViewerModules>()
                 .AddWireDataContext<Properties.WireDataContext>()
                 .Run();
         }

@@ -10,5 +10,11 @@ namespace WpfExplorer.Forms.UI.Views
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ExplorerWindow), new FrameworkPropertyMetadata(typeof(ExplorerWindow)));
         }
+        public ExplorerWindow()
+        {
+            // 초기 크기 설정
+            this.Width = 800;
+            this.Height = 800;
+        }
     }
 }
