@@ -21,6 +21,8 @@ namespace WpfExplorer.Support.Local.Helpers
 
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
+                if (!drive.IsReady) continue;
+
                 var name = $"{drive.VolumeLabel} ({drive.Name.TrimEnd('\\')})";
                 roots.Add(CreateFolderInfo(1, name, IconType.MicrosoftWindows, drive.Name));
             }
