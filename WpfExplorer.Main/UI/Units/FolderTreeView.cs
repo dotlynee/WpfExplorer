@@ -7,12 +7,16 @@ namespace WpfExplorer.Main.UI.Units
 {
     public class FolderTreeView : TreeView
     {
-        public static readonly DependencyProperty SelectionCommandProperty = DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(FolderTreeView));
+        public static readonly DependencyProperty SelectionCommandProperty =
+            DependencyProperty.Register("SelectionCommand", typeof(ICommand), typeof(FolderTreeView));
+
 
         static FolderTreeView()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(FolderTreeView), new FrameworkPropertyMetadata(typeof(FolderTreeView)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(FolderTreeView),
+                new FrameworkPropertyMetadata(typeof(FolderTreeView)));
         }
+
 
         public ICommand SelectionCommand
         {
@@ -20,10 +24,12 @@ namespace WpfExplorer.Main.UI.Units
             set => SetValue(SelectionCommandProperty, value);
         }
 
+
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new FolderTreeItem();
         }
+
 
         public FolderTreeView()
         {
@@ -35,7 +41,7 @@ namespace WpfExplorer.Main.UI.Units
             if (SelectedItem is FolderInfo item)
             {
                 SelectionCommand?.Execute(item);
-             }
+            }
         }
     }
 }
