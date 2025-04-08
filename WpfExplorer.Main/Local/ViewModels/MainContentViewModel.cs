@@ -27,10 +27,14 @@ namespace WpfExplorer.Main.Local.ViewModels
         [RelayCommand]
         private void Expand(ToggleButton expand)
         {
+            FolderInfo selected = (FolderInfo)expand.DataContext;
             if (expand.IsChecked == true)
             {
-                FolderInfo selected = (FolderInfo)expand.DataContext;
+                selected.IsFolderExpanded = true;
                 _fileService.RefreshSubdirectories(selected);
+            } else
+            {
+                selected.IsFolderExpanded = false; 
             }
         }
     }
