@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CommunityToolkit.Mvvm.Input;
+using System.Windows;
 using WpfExplorer.Forms.Local.ViewModels;
 using WpfExplorer.Forms.UI.Units;
 
@@ -10,6 +11,7 @@ namespace WpfExplorer.Forms.UI.Views
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ExplorerWindow), new FrameworkPropertyMetadata(typeof(ExplorerWindow)));
         }
+
         public ExplorerWindow()
         {
             // 초기 크기 설정
